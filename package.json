@@ -7,7 +7,6 @@
   },
   "private": true,
   "dependencies": {
-    "ejs": "^3.1.8",
     "fs-extra": "^10.1.0",
     "handlebars": "^4.7.7",
     "lodash": "^4.17.21",
@@ -23,7 +22,6 @@
     "@nrwl/linter": "14.5.2",
     "@nrwl/workspace": "14.5.2",
     "@types/ejs": "3.1.1",
-    "@types/fs-extra": "^9.0.13",
     "@types/jest": "27.4.1",
     "@types/lodash": "^4.14.192",
     "@types/node": "16.11.7",

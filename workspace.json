@@ -3,7 +3,6 @@
   "version": 2,
   "projects": {
     "create-moralis-dapp": "packages/create-moralis-dapp",
-    "next": "packages/next",
     "toolkit": "packages/toolkit"
   }
 }
