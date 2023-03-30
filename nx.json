@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "create-moralis-dappv2",
+  "npmScope": "create-moralis-dapp",
   "affected": {
     "defaultBase": "master"
   },

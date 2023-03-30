@@ -1,16 +1,44 @@
 {
-  "name": "create-moralis-dappv2",
+  "name": "create-moralis-dapp",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "yarn nx run-many --target=build --all"
+  },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "fs-extra": "^10.1.0",
+    "handlebars": "^4.7.7",
+    "lodash": "^4.17.21",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2",
+    "tslib": "^2.3.0"
+  },
   "devDependencies": {
     "@nrwl/cli": "14.5.2",
+    "@nrwl/eslint-plugin-nx": "14.5.2",
+    "@nrwl/jest": "14.5.2",
     "@nrwl/js": "14.5.2",
+    "@nrwl/linter": "14.5.2",
     "@nrwl/workspace": "14.5.2",
+    "@types/ejs": "3.1.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/jest": "27.4.1",
+    "@types/lodash": "^4.14.192",
+    "@types/node": "16.11.7",
+    "@types/prompts": "^2.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "cross-env": "^7.0.3",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "jest": "27.5.1",
     "nx": "14.5.2",
     "prettier": "^2.6.2",
+    "ts-jest": "27.1.4",
+    "ts-node": "~10.8.0",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "~4.7.2"
   }
 }

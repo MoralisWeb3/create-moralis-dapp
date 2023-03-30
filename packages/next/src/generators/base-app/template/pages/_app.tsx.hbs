@@ -1,0 +1,27 @@
+{{ files._app.imports }}
+import { MoralisConfig, MoralisProvider } from '@moralisweb3/react';
+import type { AppProps } from 'next/app';
+import '../styles/globals.css';
+
+const moralisConfig: MoralisConfig = {
+    apiKey: process.env.NEXT_PUBLIC_MORALIS_API_KEY as string,
+};
+
+{{ files._app.configs }}
+
+function MyApp({ Component, pageProps }: AppProps) {
+    return (
+        {{#each files._app.wrappers}}
+            <{{ this.name }}{{#each this.props}} {{ this.name }}={ {{ this.value }} }{{/each}}>
+        {{/each}}
+                <MoralisProvider config={moralisConfig}>
+                    <Component {...pageProps} />
+                </MoralisProvider>
+        {{#each (reverse files._app.wrappers)}}
+            </{{ this.name }}>
+        {{/each}}
+    );
+}
+
+export default MyApp;
+

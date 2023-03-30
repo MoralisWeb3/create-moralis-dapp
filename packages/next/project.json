@@ -1,0 +1,54 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/next/src",
+  "projectType": "library",
+  "targets": {
+    "dev": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "ts-node -r tsconfig-paths/register -P tsconfig.base.json packages/next/src/generate.ts --isDevMode=true"
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/next",
+        "main": "packages/next/src/index.ts",
+        "tsConfig": "packages/next/tsconfig.lib.json",
+        "assets": [
+          "packages/next/*.md",
+          "packages/next/src/generators/*/template/**"
+        ]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs next {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/next/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/next"],
+      "options": {
+        "jestConfig": "packages/next/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
