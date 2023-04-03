@@ -1,7 +1,7 @@
 {
-  "name": "package-based",
+  "name": "create-moralis-dapp-monorepo",
   "version": "0.0.0",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "scripts": {
     "build": "nx run-many --target=build --all"
   },
