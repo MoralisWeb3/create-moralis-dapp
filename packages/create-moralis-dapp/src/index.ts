@@ -2,6 +2,6 @@
 import { CMDGenerator } from './CMDGenerator';
 
 async function main() {
-  return new CMDGenerator([]).run();
+  return new CMDGenerator().run();
 }
 main();
