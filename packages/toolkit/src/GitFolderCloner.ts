@@ -1,4 +1,5 @@
 import fs from 'fs-extra';
+import os from 'os';
 import path from 'path';
 import simpleGit from 'simple-git';
 
@@ -11,19 +12,30 @@ export class GitFolderCloner {
     private folderPath: string,
     private destinationPath: string
   ) {
-    this.tempRepoPath = path.join(destinationPath, '.tmp_repo');
+    this.tempRepoPath = path.join(os.tmpdir(), 'tmp_create-moralis-dapp');
   }
 
   async clone() {
     try {
+      await this.checkDestinationExists();
       await this.cloneRepository();
       await this.changeWorkingDirectory();
       await this.checkoutFolder();
       await this.moveFolder();
-      await this.cleanup();
       console.log('Folder cloned successfully!');
     } catch (error) {
-      console.error(`Error cloning folder: ${error.message}`);
+      throw new Error(`Error cloning folder: ${error.message}`);
+    } finally {
+      await this.cleanup();
+    }
+  }
+
+  async checkDestinationExists() {
+    const destinationExists = await fs.pathExists(this.destinationPath);
+    if (destinationExists) {
+      throw new Error(
+        `Error cloning folder: A folder with the same name already exists in the destination path: ${this.destinationPath}`
+      );
     }
   }
 
@@ -44,14 +56,12 @@ export class GitFolderCloner {
   }
 
   async moveFolder() {
-    return fs.move(
-      path.join(this.tempRepoPath, this.folderPath),
-      path.join(this.destinationPath, path.basename(this.folderPath)),
-      { overwrite: true }
-    );
+    const src = path.join(this.tempRepoPath, this.folderPath);
+    return fs.move(src, this.destinationPath);
   }
 
   async cleanup() {
-    return fs.remove(this.tempRepoPath);
+    await fs.remove(this.destinationPath);
+    await fs.remove(this.tempRepoPath);
   }
 }

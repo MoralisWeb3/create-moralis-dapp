@@ -1,10 +1,28 @@
 import prompts, { Choice, PromptObject } from 'prompts';
+import { argv } from 'yargs';
+import processExit from './utils/processExit';
+prompts.override(argv);
 export class Inquirer {
   public static inquire<Question extends string = string>(
-    questions: prompts.PromptObject<Question>[] | prompts.PromptObject<Question>
+    questions:
+      | prompts.PromptObject<Question>[]
+      | prompts.PromptObject<Question>,
+    onSubmit?:
+      | ((prompt: PromptObject, answer: any, answers: any[]) => void)
+      | undefined
   ) {
-    return prompts(questions);
+    return prompts(questions, {
+      onCancel: () => {
+        processExit();
+      },
+      onSubmit(prompt, answer, answers) {
+        if (onSubmit) {
+          onSubmit(prompt, answer, answers);
+        }
+      },
+    });
   }
+
   public static get commonQuestions(): Record<string, PromptObject<string>> {
     return {
       name: {

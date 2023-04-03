@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
-import fs, { ReadOptions, WriteOptions } from 'fs-extra';
+import fs from 'fs-extra';
 import { join } from 'path';
+import * as jsonfile from 'jsonfile';
 
 export class FileSystemProcessor {
   public static async copy(source: string, destination: string) {
@@ -15,7 +16,10 @@ export class FileSystemProcessor {
     return fs.readdir(path);
   }
 
-  public static async writeFile(path: string, data: string | NodeJS.ArrayBufferView) {
+  public static async writeFile(
+    path: string,
+    data: string | NodeJS.ArrayBufferView
+  ) {
     return fs.writeFile(path, data);
   }
 
@@ -45,11 +49,18 @@ export class FileSystemProcessor {
     return res;
   }
 
-  public static async readJSON(file: string, options?: ReadOptions | BufferEncoding | string) {
+  public static async readJSON(
+    file: string,
+    options?: jsonfile.JFReadOptions | BufferEncoding | string
+  ) {
     return fs.readJSON(file, options);
   }
 
-  public static async writeJSON(file: string, object: any, options?: WriteOptions | BufferEncoding | string) {
+  public static async writeJSON(
+    file: string,
+    object: any,
+    options?: jsonfile.JFWriteOptions | BufferEncoding | string
+  ) {
     return fs.writeJSON(file, object, options);
   }
 }
