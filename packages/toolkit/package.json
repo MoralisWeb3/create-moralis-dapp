@@ -2,7 +2,7 @@
   "name": "@create-moralis-dapp/toolkit",
   "author": "Moralis",
   "version": "2.18.1",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "sideEffects": false,
