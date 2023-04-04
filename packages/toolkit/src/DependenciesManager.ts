@@ -19,14 +19,16 @@ export class DependenciesManager {
       packageJson.dependencies[name] = version;
     });
 
-    return FileSystemProcessor.writeJSON(packageJsonPath, packageJson, { spaces: 2 });
+    return FileSystemProcessor.writeJSON(packageJsonPath, packageJson, {
+      spaces: 2,
+    });
   }
 
   public async install(packageManager?: PackageManager) {
     return Executer.withSpinner(
       this.getPackageManagerInstallCmd(packageManager),
       this.destination,
-      `Installing dependencies via ${packageManager}`,
+      `Installing dependencies via ${packageManager}`
     );
   }
 

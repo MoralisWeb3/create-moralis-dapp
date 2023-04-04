@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { CMDGenerator } from './CMDGenerator';
+import { MoralisDappGenerator } from './MoralisDappGenerator';
 
-async function main() {
-  return new CMDGenerator([]).run();
-}
-main();
+(async () => {
+  const moralisDappGenerator = new MoralisDappGenerator();
+  return moralisDappGenerator.generate();
+})();
