@@ -37,6 +37,7 @@ jobs:
             .yarn/unplugged
             .yarn/build-state.yml
             .yarn/install-state.gz
+            ~/.cache/Cypress
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
