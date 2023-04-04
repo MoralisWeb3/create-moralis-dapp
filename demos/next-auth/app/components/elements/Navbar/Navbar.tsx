@@ -21,7 +21,14 @@ const Navbar: FC = () => {
     <div className={styles.nav}>
       {pages.map(({ href, name }) => (
         <Link href={href} key={name}>
-          <a className={`${styles.tab} ${href === pathname ? styles.active : null}`}> {name}</a>
+          <a
+            className={`${styles.tab} ${
+              href === pathname ? styles.active : null
+            }`}
+          >
+            {' '}
+            {name}
+          </a>
         </Link>
       ))}
     </div>

@@ -1,10 +1,17 @@
 import '../styles/globals.css';
-import { createClient, configureChains, defaultChains, WagmiConfig } from 'wagmi';
+import {
+  createClient,
+  configureChains,
+  defaultChains,
+  WagmiConfig,
+} from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 
-const { provider, webSocketProvider } = configureChains(defaultChains, [publicProvider()]);
+const { provider, webSocketProvider } = configureChains(defaultChains, [
+  publicProvider(),
+]);
 
 const client = createClient({
   provider,

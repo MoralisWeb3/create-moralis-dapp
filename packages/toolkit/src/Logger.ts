@@ -3,7 +3,7 @@ import ora from 'ora';
 export class Logger {
   public static async spinnerPromise<TPromise>(
     promise: PromiseLike<TPromise>,
-    options: ora.Options & { successText?: string; failText?: string },
+    options: ora.Options & { successText?: string; failText?: string }
   ) {
     const spinner = ora(options).start();
 

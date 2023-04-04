@@ -10,5 +10,5 @@ const moralisConfig: MoralisConfig = {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <MoralisProvider config={moralisConfig}>
     <App />
-  </MoralisProvider>,
+  </MoralisProvider>
 );
