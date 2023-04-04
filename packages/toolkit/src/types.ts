@@ -18,5 +18,10 @@ export type TemplateConfig = {
     fileName: string;
     variables: Record<'api', EnvVariable> & Record<string, EnvVariable>;
   };
+  commands: {
+    command: string;
+    description: string;
+  }[];
+  quikStart: string[];
   repoUrl: string;
 };

@@ -25,10 +25,9 @@ export class DependenciesManager {
   }
 
   public async install(packageManager?: PackageManager) {
-    return Executer.withSpinner(
+    return Executer.async(
       this.getPackageManagerInstallCmd(packageManager),
-      this.destination,
-      `Installing dependencies via ${packageManager}`
+      this.destination
     );
   }
 
