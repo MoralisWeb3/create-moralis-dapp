@@ -15,8 +15,7 @@
     "lint": "eslint . --ext .js,.ts,.tsx,jsx",
     "format": "prettier --write 'src/**/*.{js,ts}'",
     "clean": "rm -rf lib && rm -rf tsconfig.tsbuildinfo && rm -rf ./node_modules/.cache/nx",
-    "build": "tsc",
-    "dev": "ts-node src/index.ts"
+    "build": "tsc"
   },
   "dependencies": {
     "@create-moralis-dapp/toolkit": "*",

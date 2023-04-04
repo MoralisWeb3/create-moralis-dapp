@@ -32,6 +32,6 @@ export class MoralisDappGenerator {
   }
 
   private getDestinationPath(name: string) {
-    return path.join(process.cwd(), (argv as any).dev ? 'demos' : '', name);
+    return path.join(process.cwd(), (argv as any).dev ? 'dev-dapps' : '', name);
   }
 }
