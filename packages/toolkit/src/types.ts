@@ -3,7 +3,7 @@ export interface AppGenerator {
   generate(): Promise<void>;
 }
 
-type EnvVariable = {
+export type EnvVariable = {
   name: string;
   value?: string;
   desciption?: string;
@@ -16,7 +16,7 @@ export type TemplateConfig = {
   folderPath: string;
   env?: {
     fileName: string;
-    variables: EnvVariable[];
+    variables: Record<'api', EnvVariable> & Record<string, EnvVariable>;
   };
   repoUrl: string;
 };

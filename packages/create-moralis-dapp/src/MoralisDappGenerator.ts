@@ -22,7 +22,9 @@ export class MoralisDappGenerator {
     );
 
     await templateProcessor.setupFiles();
-    await templateProcessor.createEnvFile({ moralisApiKey });
+    await templateProcessor.createEnvFile({
+      api: { ...templateConfigs[template.name], value: moralisApiKey },
+    });
     await templateProcessor.updateNameInPackageJson(name);
 
     const packageManager = (argv as any)?.packageManager || 'npm';

@@ -11,7 +11,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'Next.js',
     env: {
       fileName: '.env.local',
-      variables: [{ name: 'NEXT_PUBLIC_MORALIS_API_KEY' }],
+      variables: {
+        api: {
+          name: 'NEXT_PUBLIC_MORALIS_API_KEY',
+        },
+      },
     },
   },
   'next-auth': {
@@ -22,19 +26,19 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'Next.js + Auth',
     env: {
       fileName: '.env.local',
-      variables: [
-        {
+      variables: {
+        api: {
           name: 'NEXT_PUBLIC_MORALIS_API_KEY',
         },
-        {
+        secret: {
           name: 'NEXTAUTH_SECRET',
           value: crypto.randomBytes(16).toString('hex'),
         },
-        {
+        url: {
           name: 'NEXTAUTH_URL',
           value: 'http://localhost:3000',
         },
-      ],
+      },
     },
   },
   'react-vite': {
@@ -45,7 +49,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'React + Vite',
     env: {
       fileName: '.env',
-      variables: [{ name: 'VITE_APP_MORALIS_API_KEY' }],
+      variables: { api: { name: 'VITE_APP_MORALIS_API_KEY' } },
     },
   },
   'vanilla-webpack': {
@@ -57,7 +61,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'Vanilla + Webpack',
     env: {
       fileName: '.env',
-      variables: [{ name: 'PUBLIC_MORALIS_API_KEY' }],
+      variables: { api: { name: 'PUBLIC_MORALIS_API_KEY' } },
     },
   },
   'ethereum-boilerplate': {
@@ -68,19 +72,19 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'Ethereum Boilerplate',
     env: {
       fileName: '.env.local',
-      variables: [
-        {
+      variables: {
+        api: {
           name: 'MORALIS_API_KEY',
         },
-        {
+        secret: {
           name: 'NEXTAUTH_SECRET',
           value: crypto.randomBytes(16).toString('hex'),
         },
-        {
+        url: {
           name: 'NEXTAUTH_URL',
           value: 'http://localhost:3000',
         },
-      ],
+      },
     },
   },
 };
