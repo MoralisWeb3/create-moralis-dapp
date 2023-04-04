@@ -14,7 +14,7 @@
   "dependencies": {
     "@moralisweb3/next": "^2.18.1",
     "axios": "^1.2.1",
-    "ethers": "^5.7.2",
+    "ethers": "^6.2.3",
     "moralis": "^2.18.1",
     "next": "^13.2.4",
     "next-auth": "^4.21.1",
