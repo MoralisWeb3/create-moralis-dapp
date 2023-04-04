@@ -22,7 +22,6 @@ export class GitFolderCloner {
       await this.changeWorkingDirectory();
       await this.checkoutFolder();
       await this.moveFolder();
-      console.log('Folder cloned successfully!');
     } catch (error) {
       await fs.remove(this.destinationPath);
       throw new Error(`Error cloning folder: ${error.message}`);

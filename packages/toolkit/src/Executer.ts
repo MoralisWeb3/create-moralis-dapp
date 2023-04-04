@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import { Logger } from './Logger';
 
 export class Executer {
-  private static async async(command: string, cwd: string) {
+  public static async async(command: string, cwd: string) {
     return new Promise((resolve, reject) => {
       exec(command, { cwd }, (error, stdout) => {
         if (error) {

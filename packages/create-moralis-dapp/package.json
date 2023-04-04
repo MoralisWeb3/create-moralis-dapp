@@ -3,14 +3,14 @@
   "author": "Moralis",
   "version": "2.18.1",
   "license": "SEE LICENSE IN LICENSE.md",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "type": "commonjs",
   "files": [
-    "lib/*"
+    "dist/*"
   ],
-  "bin": "./lib/index.js",
+  "bin": "./dist/index.js",
   "scripts": {
     "lint": "eslint . --ext .js,.ts,.tsx,jsx",
     "format": "prettier --write 'src/**/*.{js,ts}'",
@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "@create-moralis-dapp/toolkit": "*",
+    "chalk": "4.1.2",
     "fs-extra": "^11.0.1",
+    "ora": "^5.4.1",
     "simple-git": "^3.17.0"
   },
   "devDependencies": {
