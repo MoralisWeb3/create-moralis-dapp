@@ -20,7 +20,7 @@ const Navbar: FC = () => {
   return (
     <div className={styles.nav}>
       {pages.map(({ href, name }) => (
-        <Link href={href} key={name}>
+        <Link href={href} key={name} legacyBehavior>
           <a
             className={`${styles.tab} ${
               href === pathname ? styles.active : null

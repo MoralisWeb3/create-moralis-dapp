@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext .js,.ts ."
+    "lint": "eslint --ext .js,.ts .",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 test:cypress",
+    "test:cypress": "cypress run --browser chrome --headless"
   },
   "dependencies": {
     "@moralisweb3/next": "^2.18.1",

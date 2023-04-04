@@ -41,8 +41,8 @@ const WalletInfo = () => {
           <Image src="/assets/mage.svg" width={34} height={34} alt="profile" />
         </>
       ) : (
-        <Link href="/signin">
-          <a className={styles.authenticate}>Authenticate</a>
+        <Link href="/signin" className={styles.authenticate}>
+          Authenticate
         </Link>
       )}
     </div>
