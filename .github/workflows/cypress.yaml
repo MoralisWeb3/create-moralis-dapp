@@ -1,0 +1,55 @@
+name: Cypress Test
+
+on:
+  pull_request:
+    branches:
+      - main
+      - beta
+      - alpha
+  push:
+    branches:
+      - main
+      - beta
+      - alpha
+
+env:
+  CYPRESS_INSTALL_BINARY: 0
+
+jobs:
+  cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.yarn
+            .yarn/cache
+            .yarn/unplugged
+            .yarn/build-state.yml
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run tests with Cypress
+        run: |
+          yarn test:e2e
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots

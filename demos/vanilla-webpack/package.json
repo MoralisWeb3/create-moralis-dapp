@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:watch": "webpack --mode development --watch",
-    "serve": "http-server ./ -p 7777"
+    "serve": "http-server -p 9753 -c -1 ./",
+    "test:e2e": "start-server-and-test serve http://localhost:9753 test:cypress",
+    "test:cypress": "cypress run --browser chrome --headless"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

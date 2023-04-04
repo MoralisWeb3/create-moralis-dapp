@@ -2,7 +2,7 @@ describe('HomePage', () => {
   beforeEach(() => {
     cy.visit('/');
   });
-  it('Successfully renders "Get Ethereum Token Balance" header', () => {
-    cy.get('h4:contains("Get Ethereum Token Balance")');
+  it('Successfully renders "Vite React Moralis Template" header', () => {
+    cy.get('h1:contains("Vite React Moralis Template")');
   });
 });

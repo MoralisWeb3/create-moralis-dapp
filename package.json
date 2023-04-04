@@ -6,6 +6,7 @@
     "build": "nx run-many --target=build --all",
     "lint": "nx run-many --target=lint --all",
     "test": "yarn nx run-many --target=test --all",
+    "test:e2e": "yarn nx run-many --target=test:e2e --all --parallel=1",
     "format": "yarn prettier . \"**/*.+(js|ts|json)\" --write",
     "format:check": "yarn prettier . \"**/*.+(js|ts|json)\" --check"
   },
