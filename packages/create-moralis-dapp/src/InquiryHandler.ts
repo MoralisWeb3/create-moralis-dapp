@@ -1,8 +1,6 @@
 import { Inquirer, TemplateConfig } from '@create-moralis-dapp/toolkit';
 import { exec } from 'child_process';
-import {
-  generateTemplateChoices,
-} from './utils/templateConfigs';
+import { generateTemplateChoices } from './utils/templateConfigs';
 
 const { commonQuestions } = Inquirer;
 

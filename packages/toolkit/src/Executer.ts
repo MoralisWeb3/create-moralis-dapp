@@ -14,7 +14,11 @@ export class Executer {
     });
   }
 
-  public static async withSpinner(command: string, cwd: string, message: string) {
+  public static async withSpinner(
+    command: string,
+    cwd: string,
+    message: string
+  ) {
     return Logger.spinnerPromise(this.async(command, cwd), { text: message });
   }
 }

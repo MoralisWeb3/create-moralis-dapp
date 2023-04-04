@@ -1,4 +1,10 @@
-import { Connector, useAccount, useConnect, useDisconnect, useSignMessage } from 'wagmi';
+import {
+  Connector,
+  useAccount,
+  useConnect,
+  useDisconnect,
+  useSignMessage,
+} from 'wagmi';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { Option } from '../../elements';
@@ -23,7 +29,9 @@ const wallets = [
     name: 'WalletConnect',
     logoPath: '/assets/wallets/walletconnect.svg',
     connector: new WalletConnectConnector({
-      options: { rpc: ['https://mainnet.infura.io/v3/84842078b09946638c03157f83405213'] },
+      options: {
+        rpc: ['https://mainnet.infura.io/v3/84842078b09946638c03157f83405213'],
+      },
     }),
   },
   {
@@ -55,7 +63,10 @@ const Authentication = () => {
     const { account, chain } = await connectAsync({ connector });
 
     try {
-      const challenge = await requestChallengeAsync({ address: account, chainId: chain.id });
+      const challenge = await requestChallengeAsync({
+        address: account,
+        chainId: chain.id,
+      });
 
       if (!challenge) {
         throw new Error('No challenge received');
@@ -63,7 +74,12 @@ const Authentication = () => {
 
       const signature = await signMessageAsync({ message: challenge.message });
       const payload = `Authentication time: ${Date.now()}`;
-      await signIn('moralis-auth', { message: challenge.message, signature, payload, redirect: false });
+      await signIn('moralis-auth', {
+        message: challenge.message,
+        signature,
+        payload,
+        redirect: false,
+      });
 
       // redirects to main page
       push('/');
