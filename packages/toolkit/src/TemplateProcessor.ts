@@ -21,17 +21,16 @@ export class TemplateProcessor {
   }
 
   async createEnvFile(
-    keyValuePairs: Record<'api', EnvVariable> & Record<string, EnvVariable>
+    keyValuePairs: Record<'api', EnvVariable['value']> &
+      Record<string, EnvVariable['value']>
   ) {
-    const envContent = Object.entries({
-      ...this.templateConfig.env.variables,
-      ...keyValuePairs,
-    })
-      .map(([_key, envVar]) => {
+    const envContent = Object.entries(this.templateConfig.env.variables)
+      .map(([key, envVar]) => {
         const description = envVar?.desciption
           ? `# ${envVar.desciption}\n`
           : '';
-        return `${description}${envVar.name}=${envVar.value}`;
+        const envVarValue = keyValuePairs[key] || envVar.value;
+        return `${description}${envVar.name}=${envVarValue}`;
       })
       .join('\n');
 
