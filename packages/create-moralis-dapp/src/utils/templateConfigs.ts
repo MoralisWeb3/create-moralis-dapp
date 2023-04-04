@@ -11,34 +11,30 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'Next.js',
     env: {
       fileName: '.env.local',
-      variables: {
-        api: {
-          name: 'NEXT_PUBLIC_MORALIS_API_KEY',
-        },
-      },
+      variables: [{ name: 'NEXT_PUBLIC_MORALIS_API_KEY' }],
     },
   },
   'next-auth': {
-    description: 'Next.js project with authentication using Moralis.',
+    description: 'Next.js project with authentication using Moralis',
     folderPath: 'demos/next-auth',
     name: 'next-auth',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'Next.js + Auth',
     env: {
       fileName: '.env.local',
-      variables: {
-        api: {
+      variables: [
+        {
           name: 'NEXT_PUBLIC_MORALIS_API_KEY',
         },
-        secret: {
+        {
           name: 'NEXTAUTH_SECRET',
           value: crypto.randomBytes(16).toString('hex'),
         },
-        url: {
+        {
           name: 'NEXTAUTH_URL',
           value: 'http://localhost:3000',
         },
-      },
+      ],
     },
   },
   'react-vite': {
@@ -49,7 +45,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'React + Vite',
     env: {
       fileName: '.env',
-      variables: { api: { name: 'VITE_APP_MORALIS_API_KEY' } },
+      variables: [{ name: 'VITE_APP_MORALIS_API_KEY' }],
     },
   },
   'vanilla-webpack': {
@@ -61,7 +57,30 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     title: 'Vanilla + Webpack',
     env: {
       fileName: '.env',
-      variables: { api: { name: 'PUBLIC_MORALIS_API_KEY' } },
+      variables: [{ name: 'PUBLIC_MORALIS_API_KEY' }],
+    },
+  },
+  'ethereum-boilerplate': {
+    name: 'ethereum-boilerplate',
+    description: 'Next.js next-auth chakra-ui web3uikit wagmi ethers',
+    folderPath: '',
+    repoUrl: 'https://github.com/ethereum-boilerplate/ethereum-boilerplate.git',
+    title: 'Ethereum Boilerplate',
+    env: {
+      fileName: '.env.local',
+      variables: [
+        {
+          name: 'MORALIS_API_KEY',
+        },
+        {
+          name: 'NEXTAUTH_SECRET',
+          value: crypto.randomBytes(16).toString('hex'),
+        },
+        {
+          name: 'NEXTAUTH_URL',
+          value: 'http://localhost:3000',
+        },
+      ],
     },
   },
 };

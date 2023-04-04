@@ -16,11 +16,7 @@ export type TemplateConfig = {
   folderPath: string;
   env?: {
     fileName: string;
-    variables: Record<'api', EnvVariable> & Record<string, EnvVariable>;
+    variables: EnvVariable[];
   };
   repoUrl: string;
-};
-
-export type KeyValuePairs = {
-  [key: string]: string;
 };

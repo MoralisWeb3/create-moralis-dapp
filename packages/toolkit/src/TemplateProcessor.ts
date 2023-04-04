@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import { GitFolderCloner } from './GitFolderCloner';
-import { KeyValuePairs, TemplateConfig } from './types';
+import { TemplateConfig } from './types';
 import { FileSystemProcessor } from './FileSystemProcessor';
 import { DependenciesManager, PackageManager } from './DependenciesManager';
 
@@ -21,8 +21,11 @@ export class TemplateProcessor {
   }
 
   async createEnvFile(keyValuePairs: KeyValuePairs) {
-    const envContent = Object.entries(keyValuePairs)
-      .map(([key, value]) => `${key}=${value}`)
+    const envContent = Object.entries({
+      ...this.templateConfig.env.variables,
+      ...keyValuePairs,
+    })
+      .map(([_key, envVar]) => `${envVar.name}=${envVar.value}`)
       .join('\n');
 
     const envFilePath = path.join(
