@@ -31,7 +31,11 @@
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
+<<<<<<< HEAD
     "@typescript-eslint/parser": "^5.57.1", 
+=======
+    "@typescript-eslint/parser": "5.57.1",
+>>>>>>> 8ea4a1bfffbb7d7c6c7322ba3c3c5c23ed51cabc
     "cypress": "^12.9.0",
     "eslint": "^8.32.0",
     "eslint-config-next": "13.1.2",
