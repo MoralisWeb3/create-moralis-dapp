@@ -8,6 +8,7 @@ updates:
     schedule:
       interval: 'weekly'
     commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
+      prefix: ':wrench:'
+      include: 'scope'
+    labels:
+      - 'dependencies'

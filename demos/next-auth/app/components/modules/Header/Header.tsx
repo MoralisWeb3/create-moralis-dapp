@@ -13,15 +13,13 @@ const Header: FC = () => {
     <header className={styles.header__wrapper}>
       <nav className={styles.nav}>
         <Link href="/">
-          <a>
-            <Image
-              alt="Moralis-Logo-LightBG"
-              className={styles.logo}
-              height={30}
-              src="/Moralis-Logo-LightBG.svg"
-              width={125}
-            />
-          </a>
+          <Image
+            alt="Moralis-Logo-LightBG"
+            className={styles.logo}
+            height={30}
+            src="/Moralis-Logo-LightBG.svg"
+            width={125}
+          />
         </Link>
         <Navbar />
         <WalletInfo />

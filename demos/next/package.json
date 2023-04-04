@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ext .js,.ts ."
+    "lint": "eslint --ext .js,.ts .",
+    "test:e2e": "start-server-and-test dev http://localhost:3000 test:cypress",
+    "test:cypress": "cypress run --browser chrome --headless"
   },
   "dependencies": {
     "@moralisweb3/react": "^2.18.1",
@@ -18,21 +20,23 @@
     "next-auth": "^4.21.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "wagmi": "^0.5.11"
+    "wagmi": "^0.12.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
+    "@babel/core": "^7.21.4",
     "@babel/plugin-transform-react-jsx": "^7.20.7",
     "@moralisweb3/eslint-config": "^1.0.2",
     "@next/eslint-plugin-next": "^13.2.4",
     "@types/node": "^18.11.18",
-    "@types/react": "^18.0.18",
+    "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.48.2",
-    "@typescript-eslint/parser": "5.48.2",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "5.57.1",
     "eslint": "^8.32.0",
-    "eslint-config-next": "13.1.2",
+    "eslint-config-next": "13.2.4",
+    "eslint-plugin-cypress": "^2.13.2",
     "eslint-plugin-etc": "^2.0.2",
+    "start-server-and-test": "^2.0.0",
     "typescript": "^4.9.4"
   }
 }
