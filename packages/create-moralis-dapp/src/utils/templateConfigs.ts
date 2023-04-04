@@ -67,7 +67,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   'ethereum-boilerplate': {
     name: 'ethereum-boilerplate',
     description: 'Next.js next-auth chakra-ui web3uikit wagmi ethers',
-    folderPath: '',
+    folderPath: '.',
     repoUrl: 'https://github.com/ethereum-boilerplate/ethereum-boilerplate.git',
     title: 'Ethereum Boilerplate',
     env: {
