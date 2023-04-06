@@ -1,0 +1,9 @@
+# Node.js dependencies
+node_modules/
+
+# Webpack build artifacts
+/dist
+/build
+
+# env files
+.env*
