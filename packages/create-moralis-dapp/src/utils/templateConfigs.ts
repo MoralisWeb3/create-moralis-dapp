@@ -6,7 +6,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   next: {
     description:
       'Next.js dapp with next-auth wagmi ethers (recommended for production).',
-    folderPath: 'demos/next',
+    folderPath: 'templates/next',
     name: 'next',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'Next.js',
@@ -32,7 +32,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'next-auth': {
     description: 'Next.js project with authentication using Moralis',
-    folderPath: 'demos/next-auth',
+    folderPath: 'templates/next-auth',
     name: 'next-auth',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'Next.js + Auth',
@@ -70,7 +70,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'react-vite': {
     description: 'React dapp using Vite (recommended for rapid prototyping).',
-    folderPath: 'demos/react-vite',
+    folderPath: 'templates/react-vite',
     name: 'react-vite',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'React (Vite)',
@@ -100,7 +100,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   'vanilla-webpack': {
     description:
       'Javascript dapp using Webpack (recommended for rapid prototyping).',
-    folderPath: 'demos/vanilla-webpack',
+    folderPath: 'templates/vanilla-webpack',
     name: 'vanilla-webpack',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'Vanilla JS',
