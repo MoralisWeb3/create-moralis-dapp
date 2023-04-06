@@ -28,7 +28,7 @@ export class Inquirer {
       name: {
         name: 'name',
         initial: 'moralis-dapp',
-        message: 'What would you like to name your project?:',
+        message: 'What would you like to name your project?',
         type: 'text',
       },
       moralisApiKey: {
@@ -36,6 +36,12 @@ export class Inquirer {
         message:
           'Insert your Moralis API Key (Copy from https://admin.moralis.io/web3apis):',
         type: 'text',
+        validate: (value) => {
+          if (value.length !== 64) {
+            return 'Please insert valid Moralis API Key';
+          }
+          return true;
+        },
       },
       packageManager: {
         name: 'packageManager',
@@ -51,7 +57,7 @@ export class Inquirer {
       moralisAdmin: {
         type: 'select',
         name: 'moralisAdmin',
-        message: 'Do you already have a Moralis account?:',
+        message: 'Do you have a Moralis account?',
         choices: [
           {
             title: 'Yes',

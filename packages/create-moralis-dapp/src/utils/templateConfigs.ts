@@ -5,7 +5,7 @@ import crypto from 'crypto';
 export const templateConfigs: Record<string, TemplateConfig> = {
   next: {
     description:
-      'Next.js dapp with next-auth wagmi ethers (recommended for production).',
+      'Next.js dapp using create-next-app.',
     folderPath: 'templates/next',
     name: 'next',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
@@ -31,11 +31,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     quikStart: ['npm run dev'],
   },
   'next-auth': {
-    description: 'Next.js project with authentication using Moralis',
+    description: 'Next.js dapp with next-auth wagmi ethers.',
     folderPath: 'templates/next-auth',
     name: 'next-auth',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'Next.js + Auth',
+    title: 'Next.js + Moralis Auth',
     env: {
       fileName: '.env.local',
       variables: {
@@ -69,7 +69,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     quikStart: ['npm run dev'],
   },
   'react-vite': {
-    description: 'React dapp using Vite (recommended for rapid prototyping).',
+    description: 'React dapp using Vite.',
     folderPath: 'templates/react-vite',
     name: 'react-vite',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
@@ -99,7 +99,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'vanilla-webpack': {
     description:
-      'Javascript dapp using Webpack (recommended for rapid prototyping).',
+      'Javascript dapp using Webpack.',
     folderPath: 'templates/vanilla-webpack',
     name: 'vanilla-webpack',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
@@ -128,7 +128,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'ethereum-boilerplate': {
     name: 'ethereum-boilerplate',
-    description: 'Next.js dapp with next-auth chakra-ui web3uikit wagmi ethers (recommended for production).',
+    description: 'Next.js dapp with next-auth chakra-ui web3uikit wagmi ethers.',
     folderPath: '.',
     repoUrl: 'https://github.com/ethereum-boilerplate/ethereum-boilerplate.git',
     title: 'Ethereum Boilerplate',
