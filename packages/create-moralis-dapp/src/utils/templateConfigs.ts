@@ -5,7 +5,7 @@ import crypto from 'crypto';
 export const templateConfigs: Record<string, TemplateConfig> = {
   next: {
     description:
-      'Next.js project using create-next-app (recommended for rapid prototyping).',
+      'Next.js dapp with next-auth wagmi ethers (recommended for production).',
     folderPath: 'demos/next',
     name: 'next',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
@@ -69,11 +69,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     quikStart: ['npm run dev'],
   },
   'react-vite': {
-    description: 'React project using Vite (recommended for rapid prototyping)',
+    description: 'React dapp using Vite (recommended for rapid prototyping).',
     folderPath: 'demos/react-vite',
     name: 'react-vite',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'React + Vite',
+    title: 'React (Vite)',
     env: {
       fileName: '.env',
       variables: {
@@ -99,11 +99,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'vanilla-webpack': {
     description:
-      'Javascript + HTML project using Webpack (recommended for rapid prototyping)',
+      'Javascript dapp using Webpack (recommended for rapid prototyping).',
     folderPath: 'demos/vanilla-webpack',
     name: 'vanilla-webpack',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'Vanilla + Webpack',
+    title: 'Vanilla JS',
     env: {
       fileName: '.env',
       variables: {
@@ -128,7 +128,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'ethereum-boilerplate': {
     name: 'ethereum-boilerplate',
-    description: 'Next.js next-auth chakra-ui web3uikit wagmi ethers',
+    description: 'Next.js dapp with next-auth chakra-ui web3uikit wagmi ethers (recommended for production).',
     folderPath: '.',
     repoUrl: 'https://github.com/ethereum-boilerplate/ethereum-boilerplate.git',
     title: 'Ethereum Boilerplate',
