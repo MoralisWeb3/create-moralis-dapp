@@ -9,7 +9,7 @@ export class InquiryHandler {
     const { template } = await Inquirer.inquire({
       type: 'select',
       name: 'template',
-      message: 'Choose a project template:',
+      message: 'Which template would you like to use?',
       choices: generateTemplateChoices(),
     });
     return template;

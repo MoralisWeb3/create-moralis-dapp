@@ -1,11 +1,12 @@
 import { TemplateConfig } from '@create-moralis-dapp/toolkit';
+import chalk from 'chalk';
 import crypto from 'crypto';
 
 export const templateConfigs: Record<string, TemplateConfig> = {
   next: {
     description:
-      'Next.js project using create-next-app (recommended for rapid prototyping).',
-    folderPath: 'demos/next',
+      'Next.js dapp using create-next-app.',
+    folderPath: 'templates/next',
     name: 'next',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'Next.js',
@@ -30,11 +31,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     quikStart: ['npm run dev'],
   },
   'next-auth': {
-    description: 'Next.js project with authentication using Moralis',
-    folderPath: 'demos/next-auth',
+    description: 'Next.js dapp with next-auth wagmi ethers.',
+    folderPath: 'templates/next-auth',
     name: 'next-auth',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'Next.js + Auth',
+    title: 'Next.js + Moralis Auth',
     env: {
       fileName: '.env.local',
       variables: {
@@ -68,11 +69,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     quikStart: ['npm run dev'],
   },
   'react-vite': {
-    description: 'React project using Vite (recommended for rapid prototyping)',
-    folderPath: 'demos/react-vite',
+    description: 'React dapp using Vite.',
+    folderPath: 'templates/react-vite',
     name: 'react-vite',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'React + Vite',
+    title: 'React (Vite)',
     env: {
       fileName: '.env',
       variables: {
@@ -98,11 +99,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'vanilla-webpack': {
     description:
-      'Javascript + HTML project using Webpack (recommended for rapid prototyping)',
-    folderPath: 'demos/vanilla-webpack',
+      'Javascript dapp using Webpack.',
+    folderPath: 'templates/vanilla-webpack',
     name: 'vanilla-webpack',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'Vanilla + Webpack',
+    title: 'Vanilla JS',
     env: {
       fileName: '.env',
       variables: {
@@ -127,7 +128,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'ethereum-boilerplate': {
     name: 'ethereum-boilerplate',
-    description: 'Next.js next-auth chakra-ui web3uikit wagmi ethers',
+    description: 'Next.js dapp with next-auth chakra-ui web3uikit wagmi ethers.',
     folderPath: '.',
     repoUrl: 'https://github.com/ethereum-boilerplate/ethereum-boilerplate.git',
     title: 'Ethereum Boilerplate',
@@ -160,14 +161,14 @@ export const templateConfigs: Record<string, TemplateConfig> = {
       },
       { command: 'npm run start', description: 'Starts the production server' },
     ],
-    quikStart: ['npm run build'],
+    quikStart: ['npm run dev'],
   },
 };
 
 export function generateTemplateChoices() {
   return Object.keys(templateConfigs).map((key) => ({
-    title: templateConfigs[key].title,
-    description: templateConfigs[key].description,
+    title: `${templateConfigs[key].title} ${chalk.gray
+      .dim`- ${templateConfigs[key].description}`}`,
     value: templateConfigs[key],
   }));
 }
