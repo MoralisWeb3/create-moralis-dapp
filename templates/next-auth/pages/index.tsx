@@ -1,8 +1,8 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import { Default } from '../app/components/layouts/Default';
-import { Meta } from '../app/components/elements/Meta';
-import { UserPage } from '../app/components/templates';
 import { getSession } from 'next-auth/react';
+import { Meta } from 'src/components/elements';
+import { Default } from 'src/components/layouts';
+import { UserPage } from 'src/components/templates';
 
 const User: NextPage = () => {
   return (

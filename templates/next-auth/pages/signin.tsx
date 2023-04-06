@@ -1,6 +1,6 @@
-import { AuthPage } from '../app/components/templates';
-import { Default } from '../app/components/layouts/Default';
-import { Meta } from '../app/components/elements';
+import { AuthPage } from 'src/components/templates';
+import { Default } from 'src/components/layouts';
+import { Meta } from 'src/components/elements';
 import type { GetServerSideProps, NextPage } from 'next';
 import { getSession } from 'next-auth/react';
 

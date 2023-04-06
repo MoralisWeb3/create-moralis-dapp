@@ -10,7 +10,6 @@ import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { Option } from '../../elements';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-// import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import styles from './Authentication.module.css';
 import { useAuthRequestChallengeEvm } from '@moralisweb3/next';
 
@@ -25,15 +24,6 @@ const wallets = [
     logoPath: '/assets/wallets/coinbase.svg',
     disabled: true,
   },
-  // {
-  //   name: 'WalletConnect',
-  //   logoPath: '/assets/wallets/walletconnect.svg',
-  //   connector: new WalletConnectConnector({
-  //     options: {
-  //       projectId: '...',
-  //     },
-  //   }),
-  // },
   {
     name: 'Injected',
     logoPath: '/assets/wallets/eth.svg',
