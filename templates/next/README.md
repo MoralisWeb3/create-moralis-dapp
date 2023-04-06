@@ -1,8 +1,13 @@
-This project was generated using [create-moralis-dapp](https://github.com/MoralisWeb3/create-moralis-dapp).
-
-<a align="center" href="https://moralis.io" target="_blank">
-    <img src="https://github.com/MoralisWeb3/Moralis-JS-SDK/raw/main/assets/moralis-logo.svg" alt="create-moralis-dapp" height=200/>
-</a>
+<div align="center">
+    <a align="center" href="https://moralis.io" target="_blank">
+        <img src="https://github.com/MoralisWeb3/Moralis-JS-SDK/raw/main/assets/moralis-logo.svg" alt="create-moralis-dapp" height=200/>
+    </a>
+    <br/>
+    <h2>
+        This project was generated using 
+        <a align="center" href="https://moralis.io](https://github.com/MoralisWeb3/create-moralis-dapp" target="_blank">create-moralis-dapp</a>
+    </h2>
+</div>
 
 ## Description
 
