@@ -161,7 +161,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
       },
       { command: 'npm run start', description: 'Starts the production server' },
     ],
-    quikStart: ['npm run build'],
+    quikStart: ['npm run dev'],
   },
 };
 
