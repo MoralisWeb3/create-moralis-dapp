@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
-import { Header } from '../../modules/Header';
 import Image from 'next/image';
+import { Header } from 'src/components/modules';
 import styles from './Default.module.css';
 
 const links = [

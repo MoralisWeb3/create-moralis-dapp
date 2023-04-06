@@ -4,8 +4,7 @@ import crypto from 'crypto';
 
 export const templateConfigs: Record<string, TemplateConfig> = {
   next: {
-    description:
-      'Next.js dapp using create-next-app.',
+    description: 'Next.js dapp using create-next-app.',
     folderPath: 'templates/next',
     name: 'next',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
@@ -40,9 +39,9 @@ export const templateConfigs: Record<string, TemplateConfig> = {
       fileName: '.env.local',
       variables: {
         api: {
-          name: 'NEXT_PUBLIC_MORALIS_API_KEY',
+          name: 'MORALIS_API_KEY',
           desciption:
-            'This API key is publicly visible in your app, make sure to set correct access rights in the admin panel',
+            'Your Moralis Api key, that can be found in https://admin.moralis.io/web3apis. Keep this secret!',
         },
         secret: {
           name: 'NEXTAUTH_SECRET',
@@ -98,8 +97,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     quikStart: ['npm run dev'],
   },
   'vanilla-webpack': {
-    description:
-      'Javascript dapp using Webpack.',
+    description: 'Javascript dapp using Webpack.',
     folderPath: 'templates/vanilla-webpack',
     name: 'vanilla-webpack',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
@@ -128,7 +126,8 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   },
   'ethereum-boilerplate': {
     name: 'ethereum-boilerplate',
-    description: 'Next.js dapp with next-auth chakra-ui web3uikit wagmi ethers.',
+    description:
+      'Next.js dapp with next-auth chakra-ui web3uikit wagmi ethers.',
     folderPath: '.',
     repoUrl: 'https://github.com/ethereum-boilerplate/ethereum-boilerplate.git',
     title: 'Ethereum Boilerplate',

@@ -1,6 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import { Default } from '../app/components/layouts/Default';
-import { Meta } from '../app/components/elements/Meta';
+import { Default } from 'src/components/layouts';
+import { Meta } from 'src/components/elements';
 import { getSession } from 'next-auth/react';
 
 const Private: NextPage<{ content: string }> = ({ content }) => {
