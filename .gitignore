@@ -13,7 +13,7 @@ tmp
 node_modules
 
 # Env files
-.env
+.env*
 
 # IDEs and editors
 /.idea

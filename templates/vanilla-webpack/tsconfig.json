@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "./build",
     "noImplicitAny": true,
     "target": "es6",
     "module": "es2015",
@@ -8,7 +8,7 @@
     "strict": true,
     "allowJs": false,
     "declaration": true,
-    "declarationDir": "./dist",
+    "declarationDir": "./build",
     "moduleResolution": "node",
     "lib": ["es2015", "dom"]
   },
