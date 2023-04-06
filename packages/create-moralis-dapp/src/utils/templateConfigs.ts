@@ -1,4 +1,5 @@
 import { TemplateConfig } from '@create-moralis-dapp/toolkit';
+import chalk from 'chalk';
 import crypto from 'crypto';
 
 export const templateConfigs: Record<string, TemplateConfig> = {
@@ -166,8 +167,8 @@ export const templateConfigs: Record<string, TemplateConfig> = {
 
 export function generateTemplateChoices() {
   return Object.keys(templateConfigs).map((key) => ({
-    title: templateConfigs[key].title,
-    description: templateConfigs[key].description,
+    title: `${templateConfigs[key].title} ${chalk.gray
+      .dim`- ${templateConfigs[key].description}`}`,
     value: templateConfigs[key],
   }));
 }
