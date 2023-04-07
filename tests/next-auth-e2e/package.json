@@ -1,0 +1,11 @@
+{
+  "name": "template-next-auth-e2e",
+  "version": "0.0.1",
+  "author": "Moralis",
+  "private": true,
+  "scripts": {
+    "start": "nx dev --project template-next-auth",
+    "test:e2e": "start-server-and-test start http://localhost:3000 test:cypress",
+    "test:cypress": "cypress run --browser chrome --headless"
+  }
+}

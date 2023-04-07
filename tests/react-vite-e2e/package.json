@@ -1,0 +1,11 @@
+{
+  "name": "react-vite-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Moralis",
+  "scripts": {
+    "start": "nx dev --project template-react-vite",
+    "test:e2e": "start-server-and-test start http://localhost:3000 test:cypress",
+    "test:cypress": "cypress run --browser chrome --headless"
+  }
+}
