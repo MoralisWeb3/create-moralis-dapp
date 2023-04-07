@@ -6,6 +6,10 @@ import {
 
 declare module 'next-auth' {
   interface Session {
-    user: VerifyChallengeSolanaJSONResponse | VerifyChallengeEvmJSONResponse;
+    user:
+      | VerifyChallengeSolanaJSONResponse
+      | (VerifyChallengeEvmJSONResponse & {
+          payload: string;
+        });
   }
 }
