@@ -2,7 +2,7 @@ import 'next-auth';
 import {
   VerifyChallengeSolanaJSONResponse,
   VerifyChallengeEvmJSONResponse,
-} from '@moralisweb3/auth';
+} from 'moralis/common-auth-utils';
 
 declare module 'next-auth' {
   interface Session {
