@@ -10,7 +10,12 @@
     "declaration": true,
     "declarationDir": "./build",
     "moduleResolution": "node",
-    "lib": ["es2015", "dom"]
+    "lib": [
+      "es2015",
+      "dom"
+    ]
   },
-  "exclude": ["node_modules", "cypress"]
+  "exclude": [
+    "node_modules"
+  ]
 }
