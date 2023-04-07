@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const ts = require('typescript');
 
-const PACKAGE_DIR_PATHS = ['packages'];
+const PROJECT_DIR_PATHS = ['packages', 'templates'];
 
 const SKIP_DIRECTORIES = [
   'lib',
@@ -28,8 +28,8 @@ function findPackages(dirPath) {
   const result = [];
   fs.readdirSync(dirPath).forEach((fileName) => {
     const filePath = path.join(dirPath, fileName);
-    const packagePath = path.join(filePath, 'package.json');
-    if (fs.statSync(filePath).isDirectory() && fs.existsSync(packagePath)) {
+    const packageJsonPath = path.join(filePath, 'package.json');
+    if (fs.statSync(filePath).isDirectory() && fs.existsSync(packageJsonPath)) {
       result.push(filePath);
     }
   });
@@ -87,20 +87,21 @@ function readImports(tsFilePaths) {
   });
 }
 
-function findPackageMissingDependencies(packageDirPath) {
-  const packageJsonPath = path.join(packageDirPath, 'package.json');
+function findProjectMissingDependencies(projectDirPath) {
+  const packageJsonPath = path.join(projectDirPath, 'package.json');
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-  if (packageJson.private) {
+  const isTemplate = projectDirPath.includes('templates');
+  if (packageJson.private & !isTemplate) {
     return null;
   }
-  const packageDependencies = {
+  const projectDependencies = {
     ...(packageJson?.dependencies || {}),
     ...(packageJson?.devDependencies || {}),
   };
-  const dependenciesList = Object.keys(packageDependencies || {});
+  const dependenciesList = Object.keys(projectDependencies || {});
 
   const tsFilePaths = findFilesWithExt(
-    packageDirPath,
+    projectDirPath,
     '.ts',
     '.test.ts',
     SKIP_DIRECTORIES
@@ -123,7 +124,7 @@ function findPackageMissingDependencies(packageDirPath) {
 }
 
 const repositoryPath = path.resolve(__dirname, '..');
-const allPackagePaths = PACKAGE_DIR_PATHS.map((p) =>
+const allProjectPaths = PROJECT_DIR_PATHS.map((p) =>
   path.join(repositoryPath, p)
 )
   .map(findPackages)
@@ -131,23 +132,23 @@ const allPackagePaths = PACKAGE_DIR_PATHS.map((p) =>
 
 let exitCode = 0;
 
-for (const packagePath of allPackagePaths) {
-  const packageName = packagePath.replace(repositoryPath, '');
-  const result = findPackageMissingDependencies(packagePath);
+for (const projectPath of allProjectPaths) {
+  const projectName = projectPath.replace(repositoryPath, '');
+  const result = findProjectMissingDependencies(projectPath);
   if (!result) {
-    console.log(`⏩ Package ${packageName} is private`);
+    console.log(`⏩ Project ${projectName} is private`);
   } else if (result.missing.length > 0 || result.forbidden.length > 0) {
     const missing = result.missing.map((d) => `* [missing] ${d}`).join('\n');
     const forbidden = result.forbidden
       .map((d) => `* [forbidden] ${d}`)
       .join('\n');
     console.log(
-      `❌ Package ${packageName} is invalid:\n${missing}\n${forbidden}`
+      `❌ Project ${projectName} is invalid:\n${missing}\n${forbidden}`
     );
     exitCode = 1;
   } else {
     console.log(
-      `✅ Package ${packageName} is valid (${result.total} dependencies)`
+      `✅ Project ${projectName} is valid (${result.total} dependencies)`
     );
   }
 }
