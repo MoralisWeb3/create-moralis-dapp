@@ -37,10 +37,10 @@ jobs:
       - name: Find missing dependencies
         if: matrix.task == 'Find missing dependencies'
         run: node scripts/findMissingDependencies.js
-        
-      - name: Run ESLint
+
+      - name: Run ESLint on Affected Projects
         if: matrix.task == 'Lint'
-        run: yarn lint
+        run: yarn nx affected:lint --base=origin/${{ github.base_ref }}
         continue-on-error: true
 
       - name: Annotate ESLint Results
@@ -52,12 +52,12 @@ jobs:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           report-json: 'eslint_report.json'
 
-      - name: Run Prettier
+      - name: Run Prettier on Affected Projects
         if: matrix.task == 'Format'
-        run: yarn format:check
+        run: yarn nx affected:format:check --base=origin/${{ github.base_ref }}
 
-      - name: Build and Test
+      - name: Build and Test Affected Projects
         if: matrix.task == 'Build and Test'
         run: |
-          yarn build
-          yarn test
+          yarn nx affected:build --base=origin/${{ github.base_ref }}
+          yarn nx affected:test --base=origin/${{ github.base_ref }}
