@@ -23,14 +23,14 @@ jobs:
         task: [Find missing dependencies, Lint, Format, Build and Test]
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set BASE and HEAD
-        uses: nrwl/nx-set-shas@v3
+        uses: actions/checkout@v3
         with:
-          event: ${{ github.event_name }}
-          base: ${{ github.base_ref }}
-          head: ${{ github.head_ref }}
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Fetch Base Branch
+        if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --prune --depth=5 origin ${{ github.base_ref }}
 
       - name: Set up Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
@@ -47,7 +47,7 @@ jobs:
 
       - name: Run ESLint on Affected Projects
         if: matrix.task == 'Lint'
-        run: yarn nx affected --target=lint --base=$BASE --head=$HEAD
+        run: yarn nx affected --target=lint --base=origin/${{ github.base_ref }}E --head=HEAD
         continue-on-error: true
 
       - name: Annotate ESLint Results
@@ -60,10 +60,10 @@ jobs:
 
       - name: Run Prettier on Affected Projects
         if: matrix.task == 'Format'
-        run: yarn nx affected --target=format:check --base=$BASE --head=$HEAD
+        run: yarn nx affected --target=format:check --base=origin/${{ github.base_ref }}E --head=HEAD
 
       - name: Build and Test Affected Projects
         if: matrix.task == 'Build and Test'
         run: |
-          yarn nx affected --target=build --base=$BASE --head=$HEAD
-          yarn nx affected --target=test --base=$BASE --head=$HEAD
+          yarn nx affected --target=build --base=origin/${{ github.base_ref }}E --head=HEAD
+          yarn nx affected --target=test --base=origin/${{ github.base_ref }}E --head=HEAD
