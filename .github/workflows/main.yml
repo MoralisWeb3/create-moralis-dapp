@@ -47,7 +47,7 @@ jobs:
 
       - name: Run ESLint on Affected Projects
         if: matrix.task == 'Lint'
-        run: yarn nx affected --target=lint --base=origin/${{ github.base_ref }}E --head=HEAD
+        run: yarn nx affected --target=lint --base=origin/${{ github.base_ref }} --head=HEAD
         continue-on-error: true
 
       - name: Annotate ESLint Results
@@ -60,10 +60,10 @@ jobs:
 
       - name: Run Prettier on Affected Projects
         if: matrix.task == 'Format'
-        run: yarn nx affected --target=format:check --base=origin/${{ github.base_ref }}E --head=HEAD
+        run: yarn nx affected --target=format:check --base=origin/${{ github.base_ref }} --head=HEAD
 
       - name: Build and Test Affected Projects
         if: matrix.task == 'Build and Test'
         run: |
-          yarn nx affected --target=build --base=origin/${{ github.base_ref }}E --head=HEAD
-          yarn nx affected --target=test --base=origin/${{ github.base_ref }}E --head=HEAD
+          yarn nx affected --target=build --base=origin/${{ github.base_ref }} --head=HEAD
+          yarn nx affected --target=test --base=origin/${{ github.base_ref }} --head=HEAD
