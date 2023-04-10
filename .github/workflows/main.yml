@@ -53,7 +53,6 @@ jobs:
       - name: Annotate ESLint Results
         if: matrix.task == 'Lint'
         uses: ataylorme/eslint-annotate-action@1.2.0
-        if: always()
         continue-on-error: true
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
