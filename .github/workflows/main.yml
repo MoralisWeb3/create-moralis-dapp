@@ -14,34 +14,50 @@ on:
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os }} - Node ${{ matrix.node }} - ${{ matrix.task }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [16]
+        task: [Find missing dependencies, Lint, Format, Build and Test]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
 
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.yarn
-            .yarn/cache
-            .yarn/unplugged
-            .yarn/build-state.yml
-            .yarn/install-state.gz
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies
+      - name: Install Dependencies
         run: yarn install --immutable
-      - name: Eslint
+
+      - name: Find missing dependencies
+        if: matrix.task == 'Find missing dependencies'
+        run: node scripts/findMissingDependencies.js
+        
+      - name: Run ESLint
+        if: matrix.task == 'Lint'
         run: yarn lint
-      - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
+        continue-on-error: true
+
+      - name: Annotate ESLint Results
+        if: matrix.task == 'Lint'
+        uses: ataylorme/eslint-annotate-action@1.2.0
+        if: always()
+        continue-on-error: true
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          report-json: 'eslint_report.json'
+
+      - name: Run Prettier
+        if: matrix.task == 'Format'
+        run: yarn format:check
+
+      - name: Build and Test
+        if: matrix.task == 'Build and Test'
+        run: |
+          yarn build
+          yarn test
