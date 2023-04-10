@@ -30,6 +30,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+      
       - name: Set up Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
@@ -37,15 +38,19 @@ jobs:
           ref: ${{ github.head_ref }}
           node-version: ${{ matrix.node }}
           cache: yarn
+      
       - name: Install Dependencies
         run: yarn install --immutable
+      
       - name: Find missing dependencies
         if: matrix.task == 'Find missing dependencies'
         run: node scripts/findMissingDependencies.js
+      
       - name: Run ESLint on Affected Projects
         if: matrix.task == 'Lint'
-        run: yarn nx affected:lint --base=origin/${{ github.base_ref }}
+        run: yarn nx affected --target=lint --base=origin/${{ github.base_ref }}
         continue-on-error: true
+      
       - name: Annotate ESLint Results
         if: matrix.task == 'Lint'
         uses: ataylorme/eslint-annotate-action@1.2.0
@@ -53,11 +58,13 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           report-json: eslint_report.json
+      
       - name: Run Prettier on Affected Projects
         if: matrix.task == 'Format'
-        run: yarn nx affected:format:check --base=origin/${{ github.base_ref }}
+        run: yarn nx affected --target=format:check --base=origin/${{ github.base_ref }}
+      
       - name: Build and Test Affected Projects
         if: matrix.task == 'Build and Test'
         run: |
-          yarn nx affected:build --base=origin/${{ github.base_ref }}
-          yarn nx affected:test --base=origin/${{ github.base_ref }}
+          yarn nx affected --target=build --base=origin/${{ github.base_ref }}
+          yarn nx affected --target=test --base=origin/${{ github.base_ref }}
