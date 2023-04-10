@@ -28,7 +28,7 @@ jobs:
 
       - name: Fetch Base Branch
         if: github.event_name == 'pull_request'
-        run: git fetch --no-tags --prune --depth=5 origin ${{ github.base_ref }}
+        run: git fetch --no-tags --prune --depth=5 origin ${{ env.BASE_BRANCH }}
 
       - name: Set up Node.js 16
         uses: actions/setup-node@v3
@@ -54,7 +54,7 @@ jobs:
 
       - name: Fetch Base Branch
         if: github.event_name == 'pull_request'
-        run: git fetch --no-tags --prune --depth=5 origin ${{ github.base_ref }}
+        run: git fetch --no-tags --prune --depth=5 origin ${{ env.BASE_BRANCH }}
 
       - name: Set up Node.js 16
         uses: actions/setup-node@v3
@@ -66,7 +66,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Run ESLint on Affected Projects
-        run: yarn nx affected --target=lint --base=origin/${{ github.base_ref }} --head=HEAD
+        run: yarn nx affected --target=lint --base=origin/${{ env.BASE_BRANCH }} --head=HEAD
         continue-on-error: true
 
       - name: Annotate ESLint Results
@@ -77,7 +77,7 @@ jobs:
           report-json: 'eslint_report.json'
 
       - name: Run Prettier on Affected Projects
-        run: yarn nx affected --target=format:check --base=origin/${{ github.base_ref }} --head=HEAD
+        run: yarn nx affected --target=format:check --base=origin/${{ env.BASE_BRANCH }} --head=HEAD
 
   build_and_test:
     name: Build and Test - ${{ matrix.os }} - Node 16
