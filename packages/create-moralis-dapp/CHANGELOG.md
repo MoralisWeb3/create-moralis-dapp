@@ -1,5 +1,14 @@
 # create-moralis-dapp
 
+## 3.0.2
+
+### Patch Changes
+
+- [#45](https://github.com/MoralisWeb3/create-moralis-dapp/pull/45) [`4392e4a`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/4392e4ad262355d5d0c61817866a1a7f486a6ef7) Thanks [@Y0moo](https://github.com/Y0moo)! - bin fix
+
+- Updated dependencies [[`4392e4a`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/4392e4ad262355d5d0c61817866a1a7f486a6ef7)]:
+  - @create-moralis-dapp/toolkit@3.0.2
+
 ## 3.0.1
 
 ### Patch Changes
