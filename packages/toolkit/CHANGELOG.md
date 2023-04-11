@@ -1,5 +1,11 @@
 # @create-moralis-dapp/toolkit
 
+## 3.0.3
+
+### Patch Changes
+
+- [#47](https://github.com/MoralisWeb3/create-moralis-dapp/pull/47) [`f0b37b7`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/f0b37b73b737103c739132040721574ef52f0825) Thanks [@Y0moo](https://github.com/Y0moo)! - missing files fix
+
 ## 3.0.2
 
 ### Patch Changes
