@@ -10,9 +10,7 @@
   "files": [
     "dist/*"
   ],
-  "bin": {
-    "create-moralis-dapp": "./dist/index.js"
-  },
+  "bin": "./dist/index.js",
   "scripts": {
     "lint": "eslint . --ext .js,.ts,.tsx,jsx",
     "format": "prettier --write 'src/**/*.{js,ts}'",
