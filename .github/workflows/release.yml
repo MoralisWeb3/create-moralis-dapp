@@ -1,12 +1,9 @@
 name: Release
 
 on:
-  workflow_run:
-    workflows: ['CI/CD', 'Cypress Test']
+  push:
     branches:
       - main
-    types:
-      - completed
 
 jobs:
   release:
