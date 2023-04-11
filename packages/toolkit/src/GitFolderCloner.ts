@@ -23,7 +23,6 @@ export class GitFolderCloner {
       await this.checkoutFolder();
       await this.moveFolder();
     } catch (error) {
-      await fs.remove(this.destinationPath);
       throw new Error(`Error cloning folder: ${error.message}`);
     } finally {
       await this.cleanup();
