@@ -1,5 +1,14 @@
 # create-moralis-dapp
 
+## 3.0.1
+
+### Patch Changes
+
+- [#43](https://github.com/MoralisWeb3/create-moralis-dapp/pull/43) [`0dba111`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/0dba1112071a194430f44957d47a9c9e264dc0ff) Thanks [@Y0moo](https://github.com/Y0moo)! - Fixed is not recognized as an internal or external command Error
+
+- Updated dependencies [[`0dba111`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/0dba1112071a194430f44957d47a9c9e264dc0ff)]:
+  - @create-moralis-dapp/toolkit@3.0.1
+
 ## 3.0.0
 
 ### Major Changes
