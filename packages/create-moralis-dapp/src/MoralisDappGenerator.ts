@@ -39,16 +39,7 @@ export class MoralisDappGenerator {
       )} at ${chalk.whiteBright(destinationPath)}`
     );
 
-    console.log('You can run several commands:\n');
-
-    templateConfigs[template.name].commands.forEach(
-      ({ command, description }) => {
-        console.log(chalk.blue(command));
-        console.log(`  ${description}\n`);
-      }
-    );
-
-    console.log('Start developing by typing:\n');
+    console.log('\nStart developing by typing:\n');
 
     console.log(
       `${chalk.blue('cd')} ${(argv as any).dev ? `dev-dapps/${name}` : name}`
@@ -56,6 +47,15 @@ export class MoralisDappGenerator {
     templateConfigs[template.name].quikStart.forEach((command) => {
       console.log(chalk.blue(command));
     });
+
+    console.log('\nYou can run several commands:\n');
+
+    templateConfigs[template.name].commands.forEach(
+      ({ command, description }) => {
+        console.log(chalk.blue(command));
+        console.log(`  ${description}\n`);
+      }
+    );
   }
 
   private getDestinationPath(name: string) {
