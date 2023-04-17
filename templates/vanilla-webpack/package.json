@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "moralis": "^2.18.1"
+    "moralis": "^2.18.4"
   },
   "devDependencies": {
     "css-loader": "^6.7.3",
