@@ -1,10 +1,9 @@
 import { TemplateProcessor } from '@create-moralis-dapp/toolkit';
+import chalk from 'chalk';
 import ora from 'ora';
-import path from 'path';
 import { argv } from 'yargs';
 import { InquiryHandler } from './InquiryHandler';
 import { templateConfigs } from './utils/templateConfigs';
-import chalk from 'chalk';
 
 export class MoralisDappGenerator {
   private spinner = ora();
@@ -12,13 +11,13 @@ export class MoralisDappGenerator {
   public async generate() {
     const inquiryHandler = new InquiryHandler();
     const template = await inquiryHandler.askTemplate();
-    const name = await inquiryHandler.askProjectName(template.name);
+    const { name, destinationPath } = await inquiryHandler.askProjectName(
+      template.name
+    );
 
     await inquiryHandler.openMoralisAdminInBrowser();
 
     const moralisApiKey = await inquiryHandler.askMoralisApiKey();
-
-    const destinationPath = this.getDestinationPath(name);
 
     const templateProcessor = new TemplateProcessor(
       destinationPath,
@@ -56,10 +55,6 @@ export class MoralisDappGenerator {
         console.log(`  ${description}\n`);
       }
     );
-  }
-
-  private getDestinationPath(name: string) {
-    return path.join(process.cwd(), (argv as any).dev ? 'dev-dapps' : '', name);
   }
 
   private async setupFiles(templateProcessor: TemplateProcessor) {
