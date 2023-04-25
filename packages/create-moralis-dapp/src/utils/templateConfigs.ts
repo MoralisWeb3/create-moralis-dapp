@@ -4,37 +4,11 @@ import crypto from 'crypto';
 
 export const templateConfigs: Record<string, TemplateConfig> = {
   next: {
-    description: 'Next.js dapp using create-next-app.',
+    description: 'Full Stack Starter Template using Next.js and Typescript.',
     folderPath: 'templates/next',
     name: 'next',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'Next.js',
-    env: {
-      fileName: '.env.local',
-      variables: {
-        api: {
-          name: 'NEXT_PUBLIC_MORALIS_API_KEY',
-          desciption:
-            'This API key is publicly visible in your app, make sure to set correct access rights in the admin panel',
-        },
-      },
-    },
-    commands: [
-      { command: 'npm run dev', description: 'Starts the development server' },
-      {
-        command: 'npm run build',
-        description: 'Bundles the app for production',
-      },
-      { command: 'npm run start', description: 'Starts the production server' },
-    ],
-    quikStart: ['npm run dev'],
-  },
-  'next-auth': {
-    description: 'Next.js dapp with next-auth wagmi ethers.',
-    folderPath: 'templates/next-auth',
-    name: 'next-auth',
-    repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'Next.js + Moralis Auth',
     env: {
       fileName: '.env.local',
       variables: {

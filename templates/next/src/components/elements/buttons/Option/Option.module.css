@@ -1,0 +1,28 @@
+.option {
+  align-items: center;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.option:hover {
+  background: #232e3d;
+}
+
+.info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+}
