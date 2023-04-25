@@ -68,8 +68,8 @@ button:focus-visible {
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.logo.js:hover {
+  filter: drop-shadow(0 0 2em #f7df1e);
 }
 .logo.moralis {
   height: 5.5rem;

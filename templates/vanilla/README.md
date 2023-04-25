@@ -13,13 +13,17 @@
 
 Javascript dapp using Vite.
 
+## Start the dapp in development mode
+
+Run `npm run dev` to start the development server.
+
 ## Build the dapp
 
 Run `npm run build` to bundle the app for production.
 
 ## Start the dapp
 
-Run `npm run serve` to start the production server.
+Run `npm run preview` to start the production server.
 
 ## Ask for help
 
