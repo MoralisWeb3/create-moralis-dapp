@@ -4,7 +4,7 @@
   "private": true,
   "author": "Moralis",
   "scripts": {
-    "start": "nx serve --project template-vanilla",
+    "start": "nx dev --project template-vanilla",
     "test:e2e": "start-server-and-test start http://localhost:9753 test:cypress",
     "test:cypress": "cypress run --browser chrome --headless"
   }
