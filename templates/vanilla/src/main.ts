@@ -1,3 +1,4 @@
+window.global ||= window;
 import Moralis from 'moralis';
 
 // References to the HTML elements that we need (make sure the script is executed after the DOM elements are loaded)
@@ -12,9 +13,11 @@ const elements = {
 
 // Initialise moralis and all eventListeners
 function initialise() {
-  Moralis.start({
-    apiKey: process.env.PUBLIC_MORALIS_API_KEY,
-  });
+  if (!Moralis.Core.isStarted) {
+    Moralis.start({
+      apiKey: import.meta.env.VITE_MORALIS_API_KEY,
+    });
+  }
 
   elements.wrapperEvmToken
     .getElementsByTagName('form')[0]

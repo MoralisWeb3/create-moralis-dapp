@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanilla JS Moralis Template</title>
+</head>
+
+<body>
+  <script>
+    if (global === undefined) {
+      var global = window;
+    }
+  </script>
+  <script type="module" src="/src/main.ts"></script>
+  <header class="header">
+    <a href="https://vite.js.org" target="_blank">
+      <img src="assets/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://moralis.io" target="_blank">
+      <img src="assets/moralis.svg" class="logo moralis" alt="Moralis logo" />
+    </a>
+    <a href="https://www.typescriptlang.org/" target="_blank">
+      <img src="assets/typescript.svg" class="logo" alt="Typescript logo" />
+    </a>
+    <h1>Vanilla JS Moralis Template</h1>
+  </header>
+
+  <main>
+    <section data-request="evm-token">
+      <h4>Get Ethereum Token Balance</h4>
+      <form>
+        <div class="address-input">
+          <input name="address" value="0x75e3e9c92162e62000425c98769965a76c2e387a" />
+          <button type="submit" class="search_btn">🔎</button>
+        </div>
+      </form>
+      <h4>Result:</h4>
+      <pre data-out>Click the "🔎" button to fetch data</pre>
+    </section>
+
+    <section data-request="solana-token">
+      <h4>Get Solana Portfolio</h4>
+      <form>
+        <div class="address-input">
+          <input name="address" value="BWeBmN8zYDXgx2tnGj72cA533GZEWAVeqR9Eu29txaen" />
+          <button type="submit" class="search_btn">🔎</button>
+        </div>
+      </form>
+      <h4>Result:</h4>
+      <pre data-out>Click the "🔎" button to fetch data</pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      🙋 You have questions? Ask them on the
+      <a class="footer_link" href="https://forum.moralis.io/">Moralis forum</a>
+    </p>
+    <p>
+      📖 Read more about
+      <a class="footer_link" href="https://moralis.io/">Moralis</a>
+    </p>
+  </footer>
+</body>
+
+</html>

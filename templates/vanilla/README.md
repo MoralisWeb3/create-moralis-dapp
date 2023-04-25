@@ -11,7 +11,7 @@
 
 ## Description
 
-Javascript dapp using Webpack.
+Javascript dapp using Vite.
 
 ## Build the dapp
 
