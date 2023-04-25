@@ -11,7 +11,7 @@
 
 ## Description
 
-Next.js dapp using create-next-app.
+Full Stack Starter Template using Next.js and Typescript.
 
 ## Start the dapp in development mode
 
