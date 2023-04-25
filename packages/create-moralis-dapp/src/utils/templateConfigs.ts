@@ -42,11 +42,11 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     quikStart: ['npm run dev'],
   },
   'react-vite': {
-    description: 'React dapp using Vite.',
+    description: 'Single Page App Starter Template using React (Vite) and Typescript.',
     folderPath: 'templates/react-vite',
     name: 'react-vite',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
-    title: 'React (Vite)',
+    title: 'React',
     env: {
       fileName: '.env',
       variables: {
@@ -105,7 +105,7 @@ export const templateConfigs: Record<string, TemplateConfig> = {
   'ethereum-boilerplate': {
     name: 'ethereum-boilerplate',
     description:
-      'Next.js dapp with next-auth chakra-ui web3uikit wagmi ethers.',
+      'Full Stack Template using Next.js next-auth chakra-ui web3uikit wagmi ethers and Typescript.',
     folderPath: '.',
     repoUrl: 'https://github.com/ethereum-boilerplate/ethereum-boilerplate.git',
     title: 'Ethereum Boilerplate',
