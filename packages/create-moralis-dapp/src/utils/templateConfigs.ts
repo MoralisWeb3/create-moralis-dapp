@@ -96,17 +96,17 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     ],
     quikStart: ['npm run dev'],
   },
-  'vanilla-webpack': {
-    description: 'Javascript dapp using Webpack.',
-    folderPath: 'templates/vanilla-webpack',
-    name: 'vanilla-webpack',
+  vanilla: {
+    description: 'Static Starter Template using Vanilla JS.',
+    folderPath: 'templates/vanilla',
+    name: 'vanilla',
     repoUrl: 'https://github.com/MoralisWeb3/create-moralis-dapp.git',
     title: 'Vanilla JS',
     env: {
       fileName: '.env',
       variables: {
         api: {
-          name: 'PUBLIC_MORALIS_API_KEY',
+          name: 'VITE_MORALIS_API_KEY',
           desciption:
             'This API key is publicly visible in your app, make sure to set correct access rights in the admin panel',
         },
@@ -114,15 +114,19 @@ export const templateConfigs: Record<string, TemplateConfig> = {
     },
     commands: [
       {
-        command: 'npm run serve',
+        command: 'npm run dev',
         description: 'Starts the development server',
       },
       {
         command: 'npm run build',
         description: 'Bundles the app for production',
       },
+      {
+        command: 'npm run preview',
+        description: 'Starts the production server',
+      },
     ],
-    quikStart: ['npm run build', 'npm run serve'],
+    quikStart: ['npm run dev'],
   },
   'ethereum-boilerplate': {
     name: 'ethereum-boilerplate',

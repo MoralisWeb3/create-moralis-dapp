@@ -1,20 +1,19 @@
+window.global ||= window;
 import Moralis from 'moralis';
 
 // References to the HTML elements that we need (make sure the script is executed after the DOM elements are loaded)
 const elements = {
-  wrapperEvmToken: document.querySelector(
-    '[data-request=evm-token]'
-  ) as HTMLElement,
-  wrapperSolanaToken: document.querySelector(
-    '[data-request=solana-token]'
-  ) as HTMLElement,
+  wrapperEvmToken: document.querySelector('[data-request=evm-token]'),
+  wrapperSolanaToken: document.querySelector('[data-request=solana-token]'),
 };
 
 // Initialise moralis and all eventListeners
 function initialise() {
-  Moralis.start({
-    apiKey: process.env.PUBLIC_MORALIS_API_KEY,
-  });
+  if (!Moralis.Core.isStarted) {
+    Moralis.start({
+      apiKey: import.meta.env.VITE_MORALIS_API_KEY,
+    });
+  }
 
   elements.wrapperEvmToken
     .getElementsByTagName('form')[0]
@@ -25,19 +24,17 @@ function initialise() {
 }
 
 // Fetch the token balances for the given address and update the UI
-async function handleEvmTokenForm(event: SubmitEvent) {
+async function handleEvmTokenForm(event) {
   event.preventDefault();
 
   if (!event.target) {
     return;
   }
 
-  const data = new FormData(event.target as HTMLFormElement);
-  const address = data.get('address') as string;
+  const data = new FormData(event.target);
+  const address = data.get('address');
 
-  const elOut = elements.wrapperEvmToken.querySelector(
-    '[data-out]'
-  ) as HTMLElement;
+  const elOut = elements.wrapperEvmToken.querySelector('[data-out]');
 
   try {
     elOut.innerHTML = 'Fetching...';
@@ -45,27 +42,25 @@ async function handleEvmTokenForm(event: SubmitEvent) {
       address,
     });
     elOut.innerHTML = JSON.stringify(result, null, 2);
-  } catch (error: any) {
+  } catch (error) {
     elOut.innerHTML = JSON.stringify({ error: error.message }, null, 2);
   }
 }
 
 // Fetch the token balances for the given address and update the UI
-async function handleSolanaTokenForm(event: SubmitEvent) {
+async function handleSolanaTokenForm(event) {
   event.preventDefault();
 
-  const data = new FormData(event.target as HTMLFormElement);
-  const address = data.get('address') as string;
+  const data = new FormData(event.target);
+  const address = data.get('address');
 
-  const elOut = elements.wrapperSolanaToken.querySelector(
-    '[data-out]'
-  ) as HTMLElement;
+  const elOut = elements.wrapperSolanaToken.querySelector('[data-out]');
 
   try {
     elOut.innerHTML = 'Fetching...';
     const { result } = await Moralis.SolApi.account.getSPL({ address });
     elOut.innerHTML = JSON.stringify(result, null, 2);
-  } catch (error: any) {
+  } catch (error) {
     elOut.innerHTML = JSON.stringify({ error: error.message }, null, 2);
   }
 }
