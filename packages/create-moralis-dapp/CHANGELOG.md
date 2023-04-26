@@ -1,5 +1,18 @@
 # create-moralis-dapp
 
+## 3.0.4
+
+### Patch Changes
+
+- [#62](https://github.com/MoralisWeb3/create-moralis-dapp/pull/62) [`fdbd526`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/fdbd52602692496b69b878653d6ae4dee752f1b9) Thanks [@Y0moo](https://github.com/Y0moo)! - Vanilla Template now uses Vite and JS
+
+- [#63](https://github.com/MoralisWeb3/create-moralis-dapp/pull/63) [`c23cdf4`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/c23cdf466bfec8659d8e16b92608c583bb6cc710) Thanks [@Y0moo](https://github.com/Y0moo)! - Updated Style. Removed next-auth template
+
+- [#60](https://github.com/MoralisWeb3/create-moralis-dapp/pull/60) [`7a9b1e4`](https://github.com/MoralisWeb3/create-moralis-dapp/commit/7a9b1e488798ceb3fd1cde60b4eb5da8bdf25aef) Thanks [@Y0moo](https://github.com/Y0moo)! - Added destination validation
+
+- Updated dependencies []:
+  - @create-moralis-dapp/toolkit@3.0.4
+
 ## 3.0.3
 
 ### Patch Changes
