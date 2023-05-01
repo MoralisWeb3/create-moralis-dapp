@@ -23,7 +23,7 @@
     "fs-extra": "^11.0.1",
     "ora": "^5.4.1",
     "tslib": "^2.5.0",
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.1"
